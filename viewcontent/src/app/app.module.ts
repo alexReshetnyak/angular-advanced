@@ -1,0 +1,33 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ItemComponent } from './components/item/item.component';
+import { NestedComponent } from './components/nested/nested.component';
+import { ColoryDirective } from './directives/colory.directive';
+import { ChildComponent } from './components/child/child.component';
+import { DelayDirective } from './directives/delay.directive';
+import { BannerComponent } from './components/banner/banner.component';
+import { HostDirective } from './directives/host.directive';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ItemComponent,
+    NestedComponent,
+    ColoryDirective,
+    ChildComponent,
+    DelayDirective,
+    BannerComponent,
+    HostDirective
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  entryComponents: [BannerComponent], // ! Entry components needed for dynamics components
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
