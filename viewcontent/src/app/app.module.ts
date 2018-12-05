@@ -10,6 +10,7 @@ import { ChildComponent } from './components/child/child.component';
 import { DelayDirective } from './directives/delay.directive';
 import { BannerComponent } from './components/banner/banner.component';
 import { HostDirective } from './directives/host.directive';
+import { Banner2Component } from './components/banner2/banner2.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { HostDirective } from './directives/host.directive';
     ChildComponent,
     DelayDirective,
     BannerComponent,
-    HostDirective
+    HostDirective,
+    Banner2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  entryComponents: [BannerComponent], // ! Entry components needed for dynamics components
+  entryComponents: [BannerComponent, Banner2Component], // ! Entry components needed for dynamics components
   providers: [],
   bootstrap: [AppComponent]
 })
