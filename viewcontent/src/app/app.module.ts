@@ -11,6 +11,7 @@ import { DelayDirective } from './directives/delay.directive';
 import { BannerComponent } from './components/banner/banner.component';
 import { HostDirective } from './directives/host.directive';
 import { Banner2Component } from './components/banner2/banner2.component';
+import { ConvertPipe } from './pipes/convert.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Banner2Component } from './components/banner2/banner2.component';
     DelayDirective,
     BannerComponent,
     HostDirective,
-    Banner2Component
+    Banner2Component,
+    ConvertPipe
   ],
   imports: [
     BrowserModule,

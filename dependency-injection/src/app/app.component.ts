@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'viewcontent';
-
-  constructor() {
-    setTimeout(() => {
-      this.title = 'new Title';
-    }, 2000);
-  }
+  title = 'dependency-injection';
 }

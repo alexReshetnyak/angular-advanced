@@ -6,7 +6,7 @@
   <app-nested></app-nested>
 
   <h1 #h>Title</h1>
-  <main>
-    CONTENT
+  <main [ngStyle]="{'color': 'green'}">
+    CONTENT {{title | convert}}
   </main>
 </app-item>
