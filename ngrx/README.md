@@ -7,6 +7,8 @@
 - reducer
 - dispatch
 
+- middleware
+
 Store {
   private state;
 
@@ -21,5 +23,7 @@ Store {
   }
 }
 
+action { type, payload }
 
-# Ngrx
+
+# Ngrx (Redux + rxjs)
