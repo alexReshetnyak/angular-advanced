@@ -1,5 +1,6 @@
 <button (click)="emitValue()">Emit value</button>
 <button (click)="subscribe()">Subscribe {{subscriberIndex}}</button>
+<button (click)="complete()">Complete!</button>
 
 <ul>
   <li *ngFor="let subscriberValues of subscribersValues; index as i">
