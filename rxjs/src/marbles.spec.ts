@@ -1,7 +1,7 @@
 
 import { cold, hot, getTestScheduler } from 'jasmine-marbles';
-import { concat, take, filter, delay, map, retry } from 'rxjs/operators';
-import { interval, of } from 'rxjs';
+import { concat, take, filter, delay, map, retry, switchMap } from 'rxjs/operators';
+import { interval, of, throwError } from 'rxjs';
 
 describe('TEST', () => {
   it('simple', () => {
@@ -61,17 +61,18 @@ describe('TEST', () => {
 
   it('handle errors', () => {
     const o$ = of(1, 2, 3).pipe(
-      map(val => {
+      switchMap(val => {
         if (val > 2) {
-          throw  new Error('Number to high!');
+          return throwError('Number to high!');
+          // throw new Error('Number to high!');
         }
 
-        return val;
+        return of(val);
       }),
       retry(2)
     );
 
-    const expected = cold('(ababab#)', { a: 1, b: 2, c: 3 }, new Error('Number to high!')); // * symbol # mean exception
+    const expected = cold('(ababab#)', { a: 1, b: 2, c: 3 }, 'Number to high!'); // * symbol # mean exception
 
     expect(o$).toBeObservable(expected);
   });
