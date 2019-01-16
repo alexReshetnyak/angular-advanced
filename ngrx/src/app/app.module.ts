@@ -1,22 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { counterReducer } from './reducers/counter.reducer';
+import { counterReducer } from './redux/reducers/counter.reducer';
+import { carsReducer } from './redux/reducers/cars.reducer';
+import { CarsFormComponent } from './components/cars-form/cars-form.component';
+import { CarComponent } from './components/car/car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent
+    CounterComponent,
+    CarsFormComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     StoreModule.forRoot({
-      counter: counterReducer // * Initialization of counterReducer
+      counter: counterReducer, // * Initialization of counterReducer
+      carPage: carsReducer
     })
   ],
   providers: [],

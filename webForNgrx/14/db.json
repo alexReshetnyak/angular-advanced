@@ -1,0 +1,25 @@
+{
+  "cars": [
+    {
+      "id": 2,
+      "name": "Audi",
+      "date": "04.05.12",
+      "model": "RX6",
+      "isSold": false
+    },
+    {
+      "name": "Mercedes",
+      "date": "22.09.17",
+      "model": "GL",
+      "isSold": true,
+      "id": 3
+    },
+    {
+      "name": "Ford",
+      "date": "22.09.17",
+      "model": "Focus",
+      "isSold": false,
+      "id": 4
+    }
+  ]
+}

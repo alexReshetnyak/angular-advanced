@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
+import { INCREMENT, DECREMENT } from 'src/app/redux/reducers/counter.reducer';
 
-import { INCREMENT, DECREMENT } from 'src/app/reducers/counter.reducer';
+
 
 interface AppState {
   count: number;
