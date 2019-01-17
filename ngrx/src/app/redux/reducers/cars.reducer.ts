@@ -25,6 +25,8 @@ export function carsReducer(state = initialState, action: CarsAction) {
     case CAR_ACTION.UPDATE_CAR:
       const idx = state.cars.findIndex(c => c.id === action.payload.id);
       state.cars[idx].isSold = true;
+      // console.log('reducer state:', state);
+
       return {
         ...state,
         cars: [...state.cars]
