@@ -1,11 +1,8 @@
-import { Car } from 'src/app/models/car.model';
-import { CAR_ACTION, CarsAction } from '../actions/cars.action';
+import { Car } from "src/app/models/car.model";
+import { CAR_ACTION, CarsAction } from "../actions/cars.action";
 
 const initialState = {
-  cars: [
-    new Car('Ford', '12.12.12', 'Focus', false, 1),
-    new Car('Audi', '08.08.12', 'A4', false, 2)
-  ]
+  cars: []
 };
 
 export function carsReducer(state = initialState, action: CarsAction) {
@@ -25,11 +22,16 @@ export function carsReducer(state = initialState, action: CarsAction) {
     case CAR_ACTION.UPDATE_CAR:
       const idx = state.cars.findIndex(c => c.id === action.payload.id);
       state.cars[idx].isSold = true;
-      // console.log('reducer state:', state);
 
       return {
         ...state,
         cars: [...state.cars]
+      };
+
+    case CAR_ACTION.LOAD_CARS:
+      return {
+        ...state,
+        cars: [...action.payload]
       };
 
     default:
