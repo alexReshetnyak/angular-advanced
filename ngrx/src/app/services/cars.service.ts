@@ -3,6 +3,8 @@ import { Store } from "@ngrx/store";
 import { HttpClient } from "@angular/common/http";
 
 import { LoadCars } from "../redux/actions/cars.action";
+import { AddCar } from "../redux/actions/cars.action";
+import { DeleteCar } from "../redux/actions/cars.action";
 import { CarState } from "../redux/states/car.state";
 import { Car } from "../models/car.model";
 
@@ -20,5 +22,17 @@ export class CarsService {
     ));
 
     this.store.dispatch(new LoadCars(cars));
+  }
+
+  public async addCar(car: Car): Promise<any> {
+    const carSaved: Car = await <Car><unknown>this.http.post(this.BASE_URL + 'cars', car).toPromise();
+
+    this.store.dispatch(new AddCar(carSaved));
+  }
+
+  public async deleteCar(car: Car): Promise<any> {
+    await this.http.delete(this.BASE_URL + 'cars/' + car.id).toPromise();
+
+    this.store.dispatch(new DeleteCar(car));
   }
 }

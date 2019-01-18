@@ -1,5 +1,6 @@
 {
-  "cars": [{
+  "cars": [
+    {
       "id": 1,
       "name": "Ford",
       "date": "12-12-06",
@@ -12,6 +13,13 @@
       "date": "12-12-04",
       "model": "S6",
       "isSold": false
+    },
+    {
+      "name": "McLaren",
+      "date": "18.01.19",
+      "model": "F1",
+      "isSold": false,
+      "id": 3
     }
   ]
 }
