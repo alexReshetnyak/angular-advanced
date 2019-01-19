@@ -1,18 +1,11 @@
 {
   "cars": [
     {
-      "id": 1,
-      "name": "Ford",
-      "date": "12-12-06",
-      "model": "Mondeo",
-      "isSold": false
-    },
-    {
       "id": 2,
       "name": "Audi",
       "date": "12-12-04",
       "model": "S6",
-      "isSold": false
+      "isSold": true
     },
     {
       "name": "McLaren",
@@ -20,6 +13,27 @@
       "model": "F1",
       "isSold": false,
       "id": 3
+    },
+    {
+      "name": "Ford",
+      "date": "19.01.19",
+      "model": "Focus",
+      "isSold": false,
+      "id": 5
+    },
+    {
+      "name": "Subaru",
+      "date": "19.01.19",
+      "model": "Forester",
+      "isSold": false,
+      "id": 6
+    },
+    {
+      "name": "Kia",
+      "date": "19.01.19",
+      "model": "Rio",
+      "isSold": false,
+      "id": 7
     }
   ]
 }
