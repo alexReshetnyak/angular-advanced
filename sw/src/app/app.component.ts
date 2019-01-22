@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
+import { SwUpdate, SwPush } from '@angular/service-worker';
 
 // ! ng add @angular/pwa
 
@@ -13,10 +13,17 @@ export class AppComponent {
   title = 'sw';
 
   constructor(
-    private updates: SwUpdate
+    private updates: SwUpdate,
+    private push: SwPush // * service for push notifications
   ) {
     this.updates.available.subscribe(() => {
       console.log('App was updated');
+    });
+
+    // this,updates.checkForUpdate();
+
+    this.push.messages.subscribe(message => {
+      // * Dialogue notification message
     });
   }
 }
