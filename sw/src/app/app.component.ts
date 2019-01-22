@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 
 // ! ng add @angular/pwa
 
@@ -10,4 +11,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sw';
+
+  constructor(
+    private updates: SwUpdate
+  ) {
+    this.updates.available.subscribe(() => {
+      console.log('App was updated');
+    });
+  }
 }
