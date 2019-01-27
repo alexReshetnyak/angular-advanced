@@ -13,3 +13,16 @@ const PORT = process.env.PORT || 4000;
 const APP_FOLDER = join(process.cwd(), 'dist', 'browser');
 const { AppServerModuleNgFactory } = require('./server/main');
 
+app.engine('html', ngExpressEngine({
+  bootstrap: AppServerModuleNgFactory
+}));
+
+app.set('view engine', 'html');
+app.set('views', APP_FOLDER);
+
+app.get('*.*', express.static(APP_FOLDER));
+app.get('*', (req, res) => {
+  res.render('index', { req });
+});
+
+app.listen(PORT);
