@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
     BrowserModule.withServerTransition({ appId: 'srr' }), // * appId can be any uniq name
     AppRoutingModule
   ],
-  providers: [],
+  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

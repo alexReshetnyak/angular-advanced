@@ -4,11 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "start-all": "npm run build && npm run compile-angular-server && npm run compile-node-server && npm run start-server",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compile-server": "ng run ssr:server:production"
+    "compile-angular-server": "ng run ssr:server:production",
+    "compile-node-server": "tsc -p server.tsconfig.json",
+    "start-server": "node dist/server"
   },
   "private": true,
   "dependencies": {

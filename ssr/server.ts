@@ -10,8 +10,9 @@ enableProdMode();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const APP_FOLDER = join(process.cwd(), 'dist', 'browser');
+const APP_FOLDER = join(process.cwd(), 'dist', 'ssr');
 const { AppServerModuleNgFactory } = require('./server/main');
+
 
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory
@@ -25,4 +26,6 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log('Server running on port ' + PORT);
+});
