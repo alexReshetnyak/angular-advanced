@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'srr' }), // * appId can be any uniq name
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserTransferStateModule // * needed for state service
   ],
-  // providers: [],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

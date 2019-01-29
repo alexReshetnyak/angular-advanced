@@ -5,17 +5,20 @@ import { enableProdMode } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import { join } from 'path';
+import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 enableProdMode();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 const APP_FOLDER = join(process.cwd(), 'dist', 'ssr');
-const { AppServerModuleNgFactory } = require('./server/main');
-
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
 
 app.engine('html', ngExpressEngine({
-  bootstrap: AppServerModuleNgFactory
+  bootstrap: AppServerModuleNgFactory,
+  providers: [
+    provideModuleMap(LAZY_MODULE_MAP) // * For lazy loading
+  ]
 }));
 
 app.set('view engine', 'html');
