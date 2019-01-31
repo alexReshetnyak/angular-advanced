@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 
+// * ng generate universal ngw-app-shell --client-project ssr
+
 const ITEMS = makeStateKey('items');
 
 @Component({
@@ -14,8 +16,11 @@ export class AppComponent {
   constructor(
     state: TransferState // * service that working like storage
   ) {
-    state.set(ITEMS, [11]);
     const items = state.get(ITEMS, []);
+
+    if (!items) {
+      state.get(ITEMS, []);
+    }
 
     console.log('appComp Items:', items);
   }
